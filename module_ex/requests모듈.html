@@ -1,0 +1,31 @@
+<div class="article-pager">
+<p></p><p>Python에서 HTTP 요청을 보내는 모듈인 requests를 간단하게 정리하고자 한다.<br></p><h4>0. 기본적인 사용 방법<br></h4>
+<pre><code class="python">import requests
+URL = 'http://www.tistory.com'
+response = requests.get(URL)
+response.status_code
+response.text</code></pre>
+<p style="text-align: center; clear: none; float: none;"><span class="imageblock" style="display:inline-block;width:500px;;height:auto;max-width:100%"><span data-url="https://t1.daumcdn.net/cfile/tistory/227C8A4457A9E0AA14?download" data-lightbox="lightbox"><img srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile21.uf.tistory.com%2Fimage%2F227C8A4457A9E0AA145002" src="https://t1.daumcdn.net/cfile/tistory/227C8A4457A9E0AA14" style="cursor: pointer;max-width:100%;height:auto" width="500" height="299" alt="python-requests-get-example" filename="requests00.png" filemime="image/jpeg" original="yes"></span></span></p>
+<p>웹브라우져에서 티스토리를 접속한 것과 똑같은 이야기이다. www.tistory.com 이라는 주소로 GET 요청(request)를 보냈고 서버에서는 그 요청을 받아 뭔가를 처리한 후 요청자인 나에게 응답(response)를 줬다. 우선 그 응답은 200 상태코드와 함께 왔다. 이는 티스토리 서버에서 잘 처리되어서 정상적인 응답을 보내줬다는 OK 싸인을 의미한다. 그리고 응답의 내용은? 보시다시피 HTML 코드.</p><h4>1. GET 요청할 때 parameter 전달법</h4>
+<pre><code class="python">params = {'param1': 'value1', 'param2': 'value'}
+res = requests.get(URL, params=params)</code></pre>
+<p style="text-align: center; clear: none; float: none;"><span class="imageblock" style="display:inline-block;width:500px;;height:auto;max-width:100%"><span data-url="https://t1.daumcdn.net/cfile/tistory/26197D4057A9E9BC17?download" data-lightbox="lightbox"><img srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile5.uf.tistory.com%2Fimage%2F26197D4057A9E9BC17AF57" src="https://t1.daumcdn.net/cfile/tistory/26197D4057A9E9BC17" style="cursor: pointer;max-width:100%;height:auto" width="500" height="94" alt="python-requests-post-example" filename="requests01.png" filemime="image/jpeg" original="yes"></span></span></p>
+<p>응답 객체인 <code>res</code>를 통해서 내가 실제로 던진 URL이 뭔지 확인해보았다. 내가 준 URL과 파라미터를 requests 모듈이 엮어서 적절한 새로운 요청을 만든 것이다. 내가 직접 URL을 저렇게 타이핑하는 것보다 파라미터를 딕셔너리 형식으로 정리하고 requests 모듈에 던져주는 것이 훨씬 좋다고 생각한다.</p><h4>2. POST 요청할 때 data 전달법</h4><p>위의 내용과 같다, <code>params</code> 대신 <code>data</code>라는 이름으로 주면 된다.</p>
+<pre><code class="python">data = {'param1': 'value1', 'param2': 'value'}
+res = requests.post(URL, data=data)</code></pre>
+<p>조금 더 복잡한 구조로 POST 요청을 해야 할 때가 있다. 이럴 때는 위의 방법처럼 순진하게 주면 안된다. 우리가 인지하고 있는 그 딕셔너리의 구조를 유지하면서 문자열로 바꿔서 전달해줘야 하는데(?), python에서 이 노동을 해주는 친구가 <code>json</code> 모듈이다.</p>
+<pre><code class="python">import requests, json
+data = {'outer': {'inner': 'value'}}
+res = requests.post(URL, data=json.dumps(data))</code></pre>
+<h4>3. 헤더 추가, 쿠키 추가<br></h4><p>별도의 헤더 옵션을 추가하고자 할 때는 <code>headers</code> 옵션을, 쿠키를 심어서 요청을 보내고 싶으면 <code>cookies</code> 옵션을 사용하면 된다</p>
+<pre><code class="python">headers = {'Content-Type': 'application/json; charset=utf-8'}
+cookies = {'session_id': 'sorryidontcare'}
+res = requests.get(URL, headers=headers, cookies=cookies)</code></pre>
+<h4>4. 응답(Response) 객체</h4><p>요청(request)을 보내면 응답(response)을 받는다. 당연히 이 응답은 python 객체로 받는다. 그리고 이 응답 객체는 많은 정보와 기능을 가지고 있다. ipython이나 jupyter notebook에서 &lt;탭&gt; 기능을 이용해서 직접 체험해보면 금방 파악이 가능하지만 여기에 몇 가지만 기록하겠다.</p>
+<p style="text-align: center; clear: none; float: none;"><span class="imageblock" style="display:inline-block;width:457px;;height:auto;max-width:100%"><img srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=http%3A%2F%2Fcfile29.uf.tistory.com%2Fimage%2F2611EB4857A9F04414CFCF" src="https://t1.daumcdn.net/cfile/tistory/2611EB4857A9F04414" style="max-width:100%;height:auto" width="457" height="242" alt="python-requests-response-object" filename="requests02.png" filemime="image/jpeg" original="yes"><span class="cap1" style="display:block;max-width:100%;width:457px;">ipython 환경에서 res.&lt;탭&gt;을 통해 어떤 요소 및 함수가 있는지 살펴볼 수 있다.</span></span></p>
+<p><br></p>
+<pre><code class="python">res.request # 내가 보낸 request 객체에 접근 가능
+res.status_code # 응답 코드
+res.raise_for_status() # 200 OK 코드가 아닌 경우 에러 발동
+res.json() # json response일 경우 딕셔너리 타입으로 바로 변환</code></pre>
+</div>

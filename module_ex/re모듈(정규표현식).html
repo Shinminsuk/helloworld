@@ -1,0 +1,360 @@
+<meta charset="utf-8">
+<article class="unit-article layout-post" style="user-select: auto;">
+    <div class="unit-inner unit-article-inner" style="user-select: auto;">
+        <div itemscope="" itemtype="http://schema.org/Article" class="content" style="user-select: auto;">
+            <header style="user-select: auto;">
+                <div class="unit-head" style="user-select: auto;">
+                    <div class="unit-inner unit-head-inner" style="user-select: auto;">
+                        <h1 class="entry-title" itemprop="name" style="user-select: auto;">[misc] RegExp 정규 표현식 모음</h1>
+                    </div>
+                </div>
+            </header>
+            <div class="bd article-content" style="user-select: auto;">
+                <div class="entry-content" style="user-select: auto;">
+                    <div class="meta" style="user-select: auto;">
+                        <p class="date-publish" style="user-select: auto;">
+                            Published:
+                            <time itemprop="datePublished" class="date-pub updated" title="2018-03-09T17:53:21+09:00" datetime="2018-03-09T17:53:21+09:00" style="user-select: auto;">2018-03-09 </time>
+                            by
+                            <a class="author" href="/" rel="author" title="Show Author" style="user-select: auto;">
+                                <span itemprop="author" itemscope="" itemtype="http://schema.org/Person" style="user-select: auto;">
+                                    <span itemprop="name" style="user-select: auto;">놀이터흙이제맛</span>
+                                </span>
+                            </a>
+                            
+                                <a class="license-icon" rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" title="Show License" style="user-select: auto;">
+                                    <img alt="Creative Commons Licence" style="border-width: 0px; user-select: auto;" src="/assets/images/theme/cc-by-sa.png" height="16" width="80">
+                                </a>
+                            
+                            
+                        </p>
+                        <ul class="list-category list-linear" style="user-select: auto;">
+                            <li class="list-head" style="user-select: auto;">Categories: </li>
+                             
+     
+        <li style="user-select: auto;">
+            <a href="/categories/#misc" title="misc" style="user-select: auto;">
+            misc <span style="user-select: auto;">6</span></a>
+        </li>
+    
+
+
+
+                        </ul>
+                        <ul class="list-tag list-linear" style="user-select: auto;">
+                            <li class="list-head" style="user-select: auto;">Tags: </li>
+                             
+    
+        
+        <li style="user-select: auto;">
+            <a href="/tags/#code-snippet" title="code-snippet" style="user-select: auto;">code-snippet <span style="user-select: auto;">42</span></a>
+        </li>
+    
+        
+        <li style="user-select: auto;">
+            <a href="/tags/#rational-expression" title="rational-expression" style="user-select: auto;">rational-expression <span style="user-select: auto;">1</span></a>
+        </li>
+    
+        
+        <li style="user-select: auto;">
+            <a href="/tags/#regex" title="regex" style="user-select: auto;">regex <span style="user-select: auto;">2</span></a>
+        </li>
+    
+        
+        <li style="user-select: auto;">
+            <a href="/tags/#regexp" title="regexp" style="user-select: auto;">regexp <span style="user-select: auto;">2</span></a>
+        </li>
+    
+        
+        <li style="user-select: auto;">
+            <a href="/tags/#regular-expression" title="regular-expression" style="user-select: auto;">regular-expression <span style="user-select: auto;">1</span></a>
+        </li>
+    
+
+
+
+
+                        </ul>
+                    </div>
+                    <div itemprop="articleBody" style="user-select: auto;">
+                        <h2 id="heading-misc" style="user-select: auto;">misc</h2>
+
+<h3 id="heading-공백-줄empty-line" style="user-select: auto;">공백 줄(empty line)</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">n</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">s</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">$</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<h3 id="heading-문자의-시작과-끝으로-범위-검색" style="user-select: auto;">문자의 시작과 끝으로 범위 검색</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="c1" style="user-select: auto;">// 'a'와 'b'로 시작하며 줄바꿈을 제외한 모든 문자를 포함한 문자</span>
+<span class="o" style="user-select: auto;">/</span><span class="nx" style="user-select: auto;">a</span><span class="p" style="user-select: auto;">.</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">b</span><span class="o" style="user-select: auto;">/</span>
+<span class="c1" style="user-select: auto;">// 'a'와 'b'로 시작하며 줄바꿈을 제외한 모든 문자를 하나 이상 포함한 문자</span>
+<span class="sr" style="user-select: auto;">/a.+b/</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="c1" style="user-select: auto;">// 'ja'로 시작하고 `pt`로 끝나는 문자 중 밑줄, 알파벳, 숫자가 하나 이상 포함된 문자</span>
+<span class="o" style="user-select: auto;">/</span><span class="nx" style="user-select: auto;">ja</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">w</span><span class="o" style="user-select: auto;">+</span><span class="nx" style="user-select: auto;">pt</span><span class="o" style="user-select: auto;">/</span>
+<span class="c1" style="user-select: auto;">// 위랑 비슷하지만 'japt'처럼 중간 문자가 없어도 됨.</span>
+<span class="sr" style="user-select: auto;">/ja</span><span class="se" style="user-select: auto;">\w</span><span class="sr" style="user-select: auto;">*pt/</span>
+</code></pre></div></div>
+
+<p style="user-select: auto;">TODO 위에서 공백을 제외하는 방법을 찾아야됨.</p>
+
+<h3 id="heading-영문-대소문자-숫자-언더바_-하이픈--25자-길이의-정규-표현식" style="user-select: auto;">영문 대소문자, 숫자, 언더바<code class="language-plaintext highlighter-rouge" style="user-select: auto;">_</code>, 하이픈<code class="language-plaintext highlighter-rouge" style="user-select: auto;">-</code>, 2~5자 길이의 정규 표현식</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="p" style="user-select: auto;">[</span><span class="nx" style="user-select: auto;">a</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">zA</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">Z0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="nx" style="user-select: auto;">_</span><span class="o" style="user-select: auto;">-</span><span class="p" style="user-select: auto;">]{</span><span class="mi" style="user-select: auto;">2</span><span class="p" style="user-select: auto;">,</span><span class="mi" style="user-select: auto;">5</span><span class="p" style="user-select: auto;">}</span><span class="nx" style="user-select: auto;">$</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<h3 id="heading-언더바_-이후-모든-문자" style="user-select: auto;">언더바<code class="language-plaintext highlighter-rouge" style="user-select: auto;">_</code> 이후 모든 문자</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/</span><span class="nx" style="user-select: auto;">_</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">w</span><span class="o" style="user-select: auto;">+</span><span class="sr" style="user-select: auto;">/</span><span class="err" style="user-select: auto;">
+</span></code></pre></div></div>
+
+<h3 id="heading-언더바_-이전-모든-문자" style="user-select: auto;">언더바<code class="language-plaintext highlighter-rouge" style="user-select: auto;">_</code> 이전 모든 문자</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">w</span><span class="o" style="user-select: auto;">+</span><span class="nx" style="user-select: auto;">_</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<h3 id="heading-날짜-포맷-검사-yyyy-mm-dd" style="user-select: auto;">날짜 포맷 검사: yyyy-MM-dd</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">[</span><span class="mi" style="user-select: auto;">12</span><span class="p" style="user-select: auto;">][</span><span class="mi" style="user-select: auto;">0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="p" style="user-select: auto;">]{</span><span class="mi" style="user-select: auto;">3</span><span class="p" style="user-select: auto;">}</span><span class="o" style="user-select: auto;">-</span><span class="p" style="user-select: auto;">[</span><span class="mi" style="user-select: auto;">0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="p" style="user-select: auto;">]{</span><span class="mi" style="user-select: auto;">2</span><span class="p" style="user-select: auto;">}</span><span class="o" style="user-select: auto;">-</span><span class="p" style="user-select: auto;">[</span><span class="mi" style="user-select: auto;">0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="p" style="user-select: auto;">]{</span><span class="mi" style="user-select: auto;">2</span><span class="p" style="user-select: auto;">}</span><span class="sr" style="user-select: auto;">/</span><span class="err" style="user-select: auto;">
+</span></code></pre></div></div>
+
+<h3 id="heading-이미지-태그-찾기" style="user-select: auto;">이미지 태그 찾기</h3>
+
+<h4 id="heading-img부터--까지" style="user-select: auto;"><code class="language-plaintext highlighter-rouge" style="user-select: auto;">&lt;img</code>부터 <code class="language-plaintext highlighter-rouge" style="user-select: auto;">&gt;</code> 까지</h4>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/&lt;</span><span class="nx" style="user-select: auto;">img</span> <span class="p" style="user-select: auto;">[</span><span class="o" style="user-select: auto;">^&gt;</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">src</span><span class="o" style="user-select: auto;">=</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">([^</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">+</span><span class="p" style="user-select: auto;">)</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">[^&gt;]*&gt;/
+</span></code></pre></div></div>
+
+<h4 id="heading-img부터-src-까지" style="user-select: auto;"><code class="language-plaintext highlighter-rouge" style="user-select: auto;">&lt;img</code>부터 <code class="language-plaintext highlighter-rouge" style="user-select: auto;">src="~~~"</code> 까지</h4>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/&lt;</span><span class="nx" style="user-select: auto;">img</span> <span class="p" style="user-select: auto;">[</span><span class="o" style="user-select: auto;">^&gt;</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">src</span><span class="o" style="user-select: auto;">=</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">([^</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">+</span><span class="p" style="user-select: auto;">)</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">/
+</span></code></pre></div></div>
+
+<h4 id="heading-이미지-확장자가-jpg-png" style="user-select: auto;">이미지 확장자가 <code class="language-plaintext highlighter-rouge" style="user-select: auto;">jpg</code>, <code class="language-plaintext highlighter-rouge" style="user-select: auto;">png</code></h4>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/&lt;</span><span class="nx" style="user-select: auto;">img</span> <span class="p" style="user-select: auto;">[</span><span class="o" style="user-select: auto;">^&gt;</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">src</span><span class="o" style="user-select: auto;">=</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">([^</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">+</span><span class="p" style="user-select: auto;">)(([</span><span class="o" style="user-select: auto;">^</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">]+)(.)(jpg|png))</span><span class="dl" style="user-select: auto;">"</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<h3 id="heading-영문-대소문자-숫자-550자-길이" style="user-select: auto;">영문 대소문자, 숫자, 5~50자 길이</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="p" style="user-select: auto;">[</span><span class="nx" style="user-select: auto;">a</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">zA</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">Z0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="p" style="user-select: auto;">]{</span><span class="mi" style="user-select: auto;">5</span><span class="p" style="user-select: auto;">,</span><span class="mi" style="user-select: auto;">50</span><span class="p" style="user-select: auto;">}</span><span class="nx" style="user-select: auto;">$</span><span class="o" style="user-select: auto;">/</span>
+</code></pre></div></div>
+
+<h2 id="heading-자바스크립트에서-정규식-사용-예시" style="user-select: auto;">자바스크립트에서 정규식 사용 예시</h2>
+
+<h3 id="heading-숫자를-통화로" style="user-select: auto;">숫자를 통화로</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">1000000</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">(\d)(?=(\d{3})</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">(?!\d))</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">$1,</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<h3 id="heading-통화를-숫자로" style="user-select: auto;">통화를 숫자로</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">1,000,000</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[^</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">''</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<h3 id="heading-통화를-숫자로-2" style="user-select: auto;">통화를 숫자로 #2</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">123,123,123</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">\,</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">''</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<h3 id="heading-빈줄-제거앞" style="user-select: auto;">빈줄 제거(앞)</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">a</span> <span class="o" style="user-select: auto;">=</span> <span class="dl" style="user-select: auto;">"</span><span class="se" style="user-select: auto;">\n\n</span><span class="s2" style="user-select: auto;">a</span><span class="se" style="user-select: auto;">\n\n</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">;</span>
+<span class="nx" style="user-select: auto;">a</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">\s</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">[\r\n]</span><span class="sr" style="user-select: auto;">/gm</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">""</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<h3 id="heading-영문과-숫자가-아니면-뿅으로-치환" style="user-select: auto;">영문과 숫자가 아니면 뿅으로 치환</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">q!1@2#3뀨?asd한글</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[^</span><span class="sr" style="user-select: auto;">A-Za-z0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/gi</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">뿅</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span>
+<span class="c1" style="user-select: auto;">// 'q뿅1뿅2뿅3뿅뿅asd뿅뿅'</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자가-아닌-문자는-빈문자열로-치환" style="user-select: auto;">숫자가 아닌 문자는 빈문자열로 치환</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">12-a-123-0qweoi-123</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">\D</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">''</span><span class="p" style="user-select: auto;">);</span> <span class="c1" style="user-select: auto;">// "121230123"</span>
+</code></pre></div></div>
+
+<h3 id="heading-아스키-코드는-1-유니코드는-3으로-치환" style="user-select: auto;">아스키 코드는 1, 유니코드는 3으로 치환</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="nx" style="user-select: auto;">string</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[\0</span><span class="sr" style="user-select: auto;">-</span><span class="se" style="user-select: auto;">\x</span><span class="sr" style="user-select: auto;">7f</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">|</span><span class="se" style="user-select: auto;">([</span><span class="sr" style="user-select: auto;">0-</span><span class="se" style="user-select: auto;">\u</span><span class="sr" style="user-select: auto;">07ff</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">|</span><span class="se" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">.</span><span class="se" style="user-select: auto;">))</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">,</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">$&amp;$1$2</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">).</span><span class="nx" style="user-select: auto;">length</span>
+</code></pre></div></div>
+
+<h3 id="heading-내용의-값의-빈공백을-trim앞뒤" style="user-select: auto;">내용의 값의 빈공백을 trim(앞/뒤)</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="nb" style="user-select: auto;">String</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">prototype</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">trim</span> <span class="o" style="user-select: auto;">=</span> <span class="kd" style="user-select: auto;">function</span><span class="p" style="user-select: auto;">()</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">TRIM_PATTERN</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">^</span><span class="se" style="user-select: auto;">\s</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">|</span><span class="se" style="user-select: auto;">(\s</span><span class="sr" style="user-select: auto;">*$</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="k" style="user-select: auto;">this</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">replace</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">TRIM_PATTERN</span><span class="p" style="user-select: auto;">,</span> <span class="dl" style="user-select: auto;">""</span><span class="p" style="user-select: auto;">);</span>
+<span class="p" style="user-select: auto;">};</span>
+</code></pre></div></div>
+
+<h3 id="heading-이메일-형식-검사" style="user-select: auto;">이메일 형식 검사</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">reg</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">(?:(\.</span><span class="sr" style="user-select: auto;">|_</span><span class="se" style="user-select: auto;">)[</span><span class="sr" style="user-select: auto;">A-Za-z0-9!#$%&amp;'*+</span><span class="se" style="user-select: auto;">/</span><span class="sr" style="user-select: auto;">=?^`{|}~-</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">*@</span><span class="se" style="user-select: auto;">(?!([</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">\.[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">\.[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">\.))(?:[</span><span class="sr" style="user-select: auto;">A-Za-z0-9</span><span class="se" style="user-select: auto;">](?:[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9-</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">A-Za-z0-9</span><span class="se" style="user-select: auto;">])?\.)</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">](?:[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9-</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">a-zA-Z0-9</span><span class="se" style="user-select: auto;">])?</span><span class="sr" style="user-select: auto;">/g</span><span class="p" style="user-select: auto;">;</span>
+<span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">value</span> <span class="o" style="user-select: auto;">=</span> <span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">abc@qwe.org</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">;</span>
+<span class="nx" style="user-select: auto;">console</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">assert</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">reg</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">value</span><span class="p" style="user-select: auto;">),</span> <span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">이메일 형식이 아님</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isValidEmail</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">){</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">format</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">((\w</span><span class="sr" style="user-select: auto;">|</span><span class="se" style="user-select: auto;">[\-\.])</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">@</span><span class="se" style="user-select: auto;">((\w</span><span class="sr" style="user-select: auto;">|</span><span class="se" style="user-select: auto;">[\-\.])</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)\.([</span><span class="sr" style="user-select: auto;">A-Za-z</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">$/</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">search</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">format</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">!=</span> <span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">1</span><span class="p" style="user-select: auto;">)</span>
+    <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">;</span> <span class="c1" style="user-select: auto;">//올바른 포맷 형식</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<p style="user-select: auto;"><a href="http://emailregex.com/" style="user-select: auto;">이곳</a> 참고.</p>
+
+<h3 id="heading-한글-필터링" style="user-select: auto;">한글 필터링</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isValidKorean</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">){</span>
+   <span class="c1" style="user-select: auto;">// 유니코드 중 AC00부터 D7A3 값인지 검사</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">format</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">[\u</span><span class="sr" style="user-select: auto;">ac00-</span><span class="se" style="user-select: auto;">\u</span><span class="sr" style="user-select: auto;">d7a3</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*$/g</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">search</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">format</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">==</span> <span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">1</span><span class="p" style="user-select: auto;">)</span>
+    <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">;</span> <span class="c1" style="user-select: auto;">//올바른 포맷 형식</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-한글-필터링-2" style="user-select: auto;">한글 필터링 2</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">checkKoreanWord</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">check</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">ㄱ-ㅎ|ㅏ-ㅣ|가-힣</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="nx" style="user-select: auto;">check</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">?</span> <span class="kc" style="user-select: auto;">true</span> <span class="p" style="user-select: auto;">:</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-이미지-파일인지-검사" style="user-select: auto;">이미지 파일인지 검사</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isValidNumber</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">){</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">format</span><span class="o" style="user-select: auto;">=</span><span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*$/g</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">if</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">search</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">format</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">==</span> <span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">1</span><span class="p" style="user-select: auto;">)</span>
+    <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자인지-검사" style="user-select: auto;">숫자인지 검사</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isValidNumber</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">){</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">format</span><span class="o" style="user-select: auto;">=</span><span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">*$/g</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">if</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">data</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">search</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">format</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">==</span> <span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">1</span><span class="p" style="user-select: auto;">)</span>
+    <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">a12345</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">match</span><span class="p" style="user-select: auto;">(</span><span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[^</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">!=</span> <span class="kc" style="user-select: auto;">null</span> <span class="c1" style="user-select: auto;">// 숫자가 아닌 문자가 있을 경우 true</span>
+</code></pre></div></div>
+
+<h3 id="heading-생년월일" style="user-select: auto;">생년월일</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="nx" style="user-select: auto;">format</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">12</span><span class="se" style="user-select: auto;">][</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]{3}</span><span class="sr" style="user-select: auto;">-</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">01</span><span class="se" style="user-select: auto;">][</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">-</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">0-3</span><span class="se" style="user-select: auto;">][</span><span class="sr" style="user-select: auto;">0-9</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">;</span> <span class="c1" style="user-select: auto;">//YYYY-MM-DD 검사표현식</span>
+<span class="c1" style="user-select: auto;">//if(f.birth.value.search(format)==-1)</span>
+<span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="o" style="user-select: auto;">!</span> <span class="nx" style="user-select: auto;">format</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">f</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">birth</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">value</span><span class="p" style="user-select: auto;">))</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="nx" style="user-select: auto;">alert</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">생년월일을 정확하게 입력하세요</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">);</span>
+  <span class="nx" style="user-select: auto;">f</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">birth</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">focus</span><span class="p" style="user-select: auto;">();</span>
+  <span class="k" style="user-select: auto;">return</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자만-입력하게-함" style="user-select: auto;">숫자만 입력하게 함</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="o" style="user-select: auto;">!</span> <span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">(\d</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">$/</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">f</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">age</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">value</span><span class="p" style="user-select: auto;">))</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="nx" style="user-select: auto;">alert</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">숫자만 입력하세요.</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">);</span>
+  <span class="nx" style="user-select: auto;">f</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">age</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">focus</span><span class="p" style="user-select: auto;">();</span>
+  <span class="k" style="user-select: auto;">return</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-영문-숫자-특수문자-----인지-검사" style="user-select: auto;">영문, 숫자, 특수문자( . ; - )인지 검사</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">text</span> <span class="o" style="user-select: auto;">=</span> <span class="nx" style="user-select: auto;">$</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">#inptMemId</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">).</span><span class="nx" style="user-select: auto;">val</span><span class="p" style="user-select: auto;">();</span>
+<span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">regexp</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">0-9a-zA-Z.;</span><span class="se" style="user-select: auto;">\-]</span><span class="sr" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">;</span> <span class="c1" style="user-select: auto;">// 숫자,영문,특수문자</span>
+<span class="c1" style="user-select: auto;">// var regexp = /[0-9]/; // 숫자만</span>
+<span class="c1" style="user-select: auto;">// var regexp = /[a-zA-Z]/; // 영문만</span>
+<span class="k" style="user-select: auto;">for</span> <span class="p" style="user-select: auto;">(</span><span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">loop</span> <span class="o" style="user-select: auto;">=</span> <span class="mi" style="user-select: auto;">0</span><span class="p" style="user-select: auto;">;</span> <span class="nx" style="user-select: auto;">loop</span> <span class="o" style="user-select: auto;">&lt;</span> <span class="nx" style="user-select: auto;">text</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">length</span><span class="p" style="user-select: auto;">;</span> <span class="nx" style="user-select: auto;">loop</span><span class="o" style="user-select: auto;">++</span><span class="p" style="user-select: auto;">){</span>
+  <span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">text</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">charAt</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">loop</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">!=</span> <span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;"> </span><span class="dl" style="user-select: auto;">"</span>
+      <span class="o" style="user-select: auto;">&amp;&amp;</span> <span class="nx" style="user-select: auto;">regexp</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">text</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">charAt</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">loop</span><span class="p" style="user-select: auto;">))</span> <span class="o" style="user-select: auto;">==</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+    <span class="nx" style="user-select: auto;">alert</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">text</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">charAt</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">loop</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">+</span> <span class="dl" style="user-select: auto;">"</span><span class="s2" style="user-select: auto;">는 입력불가능한 문자입니다</span><span class="dl" style="user-select: auto;">"</span><span class="p" style="user-select: auto;">);</span>
+    <span class="k" style="user-select: auto;">return</span><span class="p" style="user-select: auto;">;</span>
+    <span class="k" style="user-select: auto;">break</span><span class="p" style="user-select: auto;">;</span>
+  <span class="p" style="user-select: auto;">}</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자와-알파벳-대소문자-쉼표-언더바_-이외의-문자가-있을-경우-false" style="user-select: auto;">숫자와 알파벳 대소문자, 쉼표<code class="language-plaintext highlighter-rouge" style="user-select: auto;">.</code>, 언더바<code class="language-plaintext highlighter-rouge" style="user-select: auto;">_</code> 이외의 문자가 있을 경우 false</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="p" style="user-select: auto;">[</span><span class="nx" style="user-select: auto;">a</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">zA</span><span class="o" style="user-select: auto;">-</span><span class="nx" style="user-select: auto;">Z0</span><span class="o" style="user-select: auto;">-</span><span class="mi" style="user-select: auto;">9</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">_</span><span class="p" style="user-select: auto;">]</span><span class="o" style="user-select: auto;">*</span><span class="nx" style="user-select: auto;">$</span><span class="o" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">123abcABC_.</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span>
+</code></pre></div></div>
+
+<h3 id="heading-특수문자가-있으면-true" style="user-select: auto;">특수문자가 있으면 true</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">existSpecialchar</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">pattern</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">`~!@#$%^&amp;*|</span><span class="se" style="user-select: auto;">\\\'\"</span><span class="sr" style="user-select: auto;">;:</span><span class="se" style="user-select: auto;">\/</span><span class="sr" style="user-select: auto;">?</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/gi</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">if</span> <span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">pattern</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="o" style="user-select: auto;">==</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+    <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">true</span><span class="p" style="user-select: auto;">;</span>
+  <span class="p" style="user-select: auto;">}</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="kc" style="user-select: auto;">false</span><span class="p" style="user-select: auto;">;</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자만-있으면-true" style="user-select: auto;">숫자만 있으면 true</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isOnlyNumber</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">pattern</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">(\d</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)</span><span class="sr" style="user-select: auto;">$/gi</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="nx" style="user-select: auto;">pattern</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">);</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-한글과-공백만-있으면-true" style="user-select: auto;">한글과 공백만 있으면 true</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">function</span> <span class="nx" style="user-select: auto;">isOnlyKoreanWithSpaces</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">)</span> <span class="p" style="user-select: auto;">{</span>
+  <span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">pattern</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/^</span><span class="se" style="user-select: auto;">[</span><span class="sr" style="user-select: auto;">가-힣</span><span class="se" style="user-select: auto;">\s]</span><span class="sr" style="user-select: auto;">+$/gi</span><span class="p" style="user-select: auto;">;</span>
+  <span class="k" style="user-select: auto;">return</span> <span class="nx" style="user-select: auto;">pattern</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="nx" style="user-select: auto;">str</span><span class="p" style="user-select: auto;">);</span>
+<span class="p" style="user-select: auto;">}</span>
+</code></pre></div></div>
+
+<h3 id="heading-숫자와-하이픈-만-true-자릿수-체크-안함" style="user-select: auto;">숫자와 하이픈(-)만 true, 자릿수 체크 안함</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="o" style="user-select: auto;">/^</span><span class="p" style="user-select: auto;">((</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">d</span><span class="o" style="user-select: auto;">+</span><span class="p" style="user-select: auto;">)(</span><span class="err" style="user-select: auto;">\</span><span class="o" style="user-select: auto;">-</span><span class="p" style="user-select: auto;">?)(</span><span class="err" style="user-select: auto;">\</span><span class="nx" style="user-select: auto;">d</span><span class="o" style="user-select: auto;">+</span><span class="p" style="user-select: auto;">))</span><span class="o" style="user-select: auto;">+</span><span class="nx" style="user-select: auto;">$</span><span class="o" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">010-0000-0000</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">)</span>
+</code></pre></div></div>
+
+<h3 id="heading-html에서-특정-속성-검색" style="user-select: auto;">HTML에서 특정 속성 검색</h3>
+
+<div class="language-js highlighter-rouge" style="user-select: auto;"><div class="highlight" style="user-select: auto;"><pre class="highlight" style="user-select: auto;"><code style="user-select: auto;"><span class="kd" style="user-select: auto;">var</span> <span class="nx" style="user-select: auto;">p</span> <span class="o" style="user-select: auto;">=</span> <span class="sr" style="user-select: auto;">/placeholder=</span><span class="se" style="user-select: auto;">[\"</span><span class="sr" style="user-select: auto;">'</span><span class="se" style="user-select: auto;">]?([^</span><span class="sr" style="user-select: auto;">&gt;</span><span class="se" style="user-select: auto;">\"</span><span class="sr" style="user-select: auto;">'</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">+</span><span class="se" style="user-select: auto;">)[\"</span><span class="sr" style="user-select: auto;">'</span><span class="se" style="user-select: auto;">]?[^</span><span class="sr" style="user-select: auto;">&gt;</span><span class="se" style="user-select: auto;">]</span><span class="sr" style="user-select: auto;">/</span><span class="p" style="user-select: auto;">;</span>
+<span class="nx" style="user-select: auto;">p</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">placeholder="abc"</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span> <span class="c1" style="user-select: auto;">// true</span>
+<span class="nx" style="user-select: auto;">p</span><span class="p" style="user-select: auto;">.</span><span class="nx" style="user-select: auto;">test</span><span class="p" style="user-select: auto;">(</span><span class="dl" style="user-select: auto;">'</span><span class="s1" style="user-select: auto;">placeholder=""</span><span class="dl" style="user-select: auto;">'</span><span class="p" style="user-select: auto;">);</span> <span class="c1" style="user-select: auto;">// false</span>
+</code></pre></div></div>
+
+<p style="user-select: auto;"><code class="language-plaintext highlighter-rouge" style="user-select: auto;">placeholder="abc"</code>는 찾지만 <code class="language-plaintext highlighter-rouge" style="user-select: auto;">placeholder=""</code>는 못찾음.</p>
+
+                    </div>
+                </div>
+            </div>
+            <footer class="unit-foot" style="user-select: auto; top: 20px;">
+                <div class="unit-inner unit-foot-inner" style="user-select: auto;">
+                    <div class="post-buttons" style="user-select: auto;">
+                        <a class="internal gotop" href="#page" title="Back to Top" style="user-select: auto;">Back to Top</a>
+                        
+                    </div>
+                    <nav class="pagination" style="user-select: auto;">
+                        
+                            <a class="internal" rel="prev" href="/maven/maven-%EB%A9%94%EC%9D%B4%EB%B8%90-%EB%84%A5%EC%84%9C%EC%8A%A4%EC%97%90-jar-%EC%97%85%EB%A1%9C%EB%93%9C-%ED%95%98%EA%B8%B0/" title=" '[Maven] 메이븐 넥서스에 jar 업로드 하기'" style="user-select: auto;"> ← [Maven] 메이븐 넥서스에 jar 업로드 하기</a>
+                        
+                        
+                            <a class="internal" rel="next" href="/windows/windows-%EC%9C%88%EB%8F%84%EC%9A%B010-%EC%8B%9C%EC%9E%91%ED%99%94%EB%A9%B4-%EC%95%B1-%EC%8B%A4%ED%96%89-%EB%B0%94%EB%A1%9C%EA%B0%80%EA%B8%B0-%EC%B6%94%EA%B0%80%ED%95%98%EB%8A%94-%EB%B0%A9%EB%B2%95/" title="Next Post '[Windows] 윈도우10 시작화면 앱 실행 바로가기 추가하는 방법.'" style="user-select: auto;">[Windows] 윈도우10 시작화면 앱 실행 바로가기 추가하는 방법. → </a>
+                        
+                    </nav>
+                </div>
+            </footer>
+            <div class="misc-content" style="user-select: auto;">
+                
+            </div>
+        </div>
+    </div>
+</article>
